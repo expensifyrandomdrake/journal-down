@@ -22,7 +22,7 @@
 # https://twitter.com/randomdrake
 #
 # Tested on macOS Sierra 10.12.6
-# MacDown 0.7.1
+# MacDown 0.7.1 (870)
 
 # This is JournalDown.
 #
@@ -78,7 +78,7 @@ while getopts ":hor:" opt; do
             exit 0
             ;;
         o)
-            /Applications/Macdown.app/Contents/SharedSupport/bin/macdown "$journal_filename"
+            /usr/local/bin/macdown "$journal_filename"
             exit 0
             ;;
         r)
@@ -93,13 +93,13 @@ while getopts ":hor:" opt; do
 
                 journal_filename="$journal_path/$year/$month/$year-$month-$day.md"
                 if [[ -e "$journal_filename" ]]; then
-                    /Applications/Macdown.app/Contents/SharedSupport/bin/macdown "$journal_filename"
+                    /usr/local/bin/macdown "$journal_filename"
                 else
                     echo "File does not exist: $journal_filename"
                     exit 1
                 fi
             fi
-            /Applications/Macdown.app/Contents/SharedSupport/bin/macdown "$journal_filename"
+            /usr/local/bin/macdown "$journal_filename"
             exit 0
             ;;
         \?)
@@ -126,4 +126,4 @@ printf "\n\n## $time_header\n\n" >> "$journal_filename"
 
 # Open our journal file in MacDown using included helper script.
 # From: https://github.com/MacDownApp/macdown/wiki/Advanced-Usage
-/Applications/Macdown.app/Contents/SharedSupport/bin/macdown "$journal_filename"
+/usr/local/bin/macdown "$journal_filename"
